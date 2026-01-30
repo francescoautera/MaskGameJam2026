@@ -8,7 +8,16 @@ namespace GameJam
     {
         [SerializeField] private CanvasGroup _group;
         [SerializeField] private bool blockRaycastActive;
-    
+        [SerializeField] private bool closeAtStart;
+
+        private void Start()
+        {
+            if (closeAtStart)
+            {
+                Close(null);
+            }
+        }
+
         public void Show(Action OnEnd)
         {
             if (blockRaycastActive)
