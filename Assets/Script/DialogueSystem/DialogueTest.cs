@@ -32,6 +32,7 @@ public class DialogueTest : MonoBehaviour
         OnEndDialogue = OnEnd;
         DialogueData = dialogueData;
         _line.text = "";
+        Canvas.ForceUpdateCanvases();
         _name.text = dialogueData.Name;
         if (GetComponent<CanvasGroupController>())
         {
