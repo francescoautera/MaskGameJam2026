@@ -49,6 +49,8 @@ namespace GameJam
 
         [Header("Life")]
         public int life;
+        public GameObject mask;
+        private GameObject copyMask;
         private int currentLife;
         private string currentNameCharacter;
 
@@ -135,7 +137,20 @@ namespace GameJam
             }
         }
 
-       
+        public void SpawnMask()
+        {
+            copyMask = Instantiate(mask, mask.transform);
+        }
+
+        public void DestroyMask()
+        {
+            if (copyMask)
+            {
+                Destroy(copyMask);
+            }
+        }
+
+
     }
 
     [Serializable]
