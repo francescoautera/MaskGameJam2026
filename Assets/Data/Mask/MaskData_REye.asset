@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfb1bc34b0c436f84f14629953fa134, type: 3}
   m_Name: MaskData_REye
   m_EditorClassIdentifier: Assembly-CSharp::GameJam.MaskData
-  _spriteMask: {fileID: 0}
+  _spriteMask: {fileID: 21300000, guid: 7846de876c2815949ac5b4092d1f56da, type: 3}
   MaskLayer: 2

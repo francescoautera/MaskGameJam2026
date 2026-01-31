@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcfb1bc34b0c436f84f14629953fa134, type: 3}
-  m_Name: MaskData_LEye
+  m_Name: MaskData_REye_Gold
   m_EditorClassIdentifier: Assembly-CSharp::GameJam.MaskData
-  _spriteMask: {fileID: 21300000, guid: ed0091ebbf4230845bc98835e01ab1a0, type: 3}
-  MaskLayer: 2
+  _spriteMask: {fileID: 21300000, guid: 5c43f5980aba6f54e8e9bea77a2bffaa, type: 3}
+  MaskLayer: 3

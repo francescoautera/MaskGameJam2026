@@ -43,6 +43,10 @@ public class Character : MonoBehaviour
   [SerializeField]  SpriteRenderer leftEyeMaskSprite;
   [SerializeField]  SpriteRenderer noseMaskSprite;
   [SerializeField]  SpriteRenderer mouthMaskSprite;
+
+  private string currentNameCharacter;
+  
+  
   public void Setup(LoadData loadData)
   {
     _front = loadData._front;
@@ -57,6 +61,8 @@ public class Character : MonoBehaviour
     mouthMask = loadData.mouthMask;
     
     currentDialogueData = loadData.dialogueDataLoaded;
+    currentNameCharacter = currentDialogueData.Name;
+    
     if (!loadSprites)
     {
       return;
@@ -67,10 +73,15 @@ public class Character : MonoBehaviour
     rightEyeSprite.sprite = _rightEye.faceSprite;
     leftEyeSprite.sprite = _leftEye.faceSprite;
     mouthMaskSprite.sprite = mouthMask._spriteMask;
+    mouthMaskSprite.rendererPriority = (int)mouthMask.MaskLayer;
     frontMaskSprite.sprite = _frontMask._spriteMask;
+    frontMaskSprite.rendererPriority = (int)_frontMask.MaskLayer;
     rightEyeMaskSprite.sprite = _rightEyeMask._spriteMask;
+    rightEyeMaskSprite.rendererPriority = (int)_rightEyeMask.MaskLayer;
     leftEyeMaskSprite.sprite = _leftEyeMask._spriteMask;
+    leftEyeMaskSprite.rendererPriority = (int)_leftEyeMask.MaskLayer;
     noseMaskSprite.sprite = _noseMask._spriteMask;
+    noseMaskSprite.rendererPriority = (int)_noseMask.MaskLayer;
     
   }
 
@@ -87,8 +98,9 @@ public class Character : MonoBehaviour
     {
       if (points.points.x <= point && points.points.y >= point)
       {
+        points.pointDialogue.name = currentNameCharacter;
         FindFirstObjectByType<DialogueTest>().StartDialogue(points.pointDialogue,onEndCalculatePoints);
-
+        return;
       }
     }
   }
