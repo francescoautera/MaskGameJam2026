@@ -522,7 +522,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ea597c375598642aba956a0ac67570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameJam.Character
+  OnEndDialogue:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1861226912}
+        m_TargetAssemblyTypeName: GameJam.ChangeAnimatorValue, Assembly-CSharp
+        m_MethodName: SetAnimationParameter
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onEndCalculatePoints:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 651665634}
+        m_TargetAssemblyTypeName: GameJam.ChangeAnimatorValue, Assembly-CSharp
+        m_MethodName: SetAnimationParameter
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   currentDialogueData: {fileID: 11400000, guid: 2984508373d3a8a48bece0091220cfea, type: 2}
+  pointsDialogues:
+  - points: {x: 0, y: 5}
+    pointDialogue: {fileID: 11400000, guid: c20221abff267a942bd76d06ad803f5f, type: 2}
+  - points: {x: 5, y: 10}
+    pointDialogue: {fileID: 11400000, guid: d5f60ca2374cd2843998ad0673e8b411, type: 2}
+  - points: {x: 10, y: 15}
+    pointDialogue: {fileID: 11400000, guid: 76d46927b2f28fb4cb91889a37ad7c7b, type: 2}
 --- !u!1 &286791364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,19 +1147,7 @@ MonoBehaviour:
       m_Calls: []
   OnEndDialogue:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1861226912}
-        m_TargetAssemblyTypeName: GameJam.ChangeAnimatorValue, Assembly-CSharp
-        m_MethodName: SetAnimationParameter
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   _waitTime: 0.05
   _renderer: {fileID: 0}
   _name: {fileID: 640823192}
@@ -1177,6 +1202,52 @@ MonoBehaviour:
   _group: {fileID: 640823193}
   blockRaycastActive: 0
   closeAtStart: 0
+--- !u!1 &651665632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 651665633}
+  - component: {fileID: 651665634}
+  m_Layer: 0
+  m_Name: ChangeValueEndMinigame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &651665633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651665632}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 992353845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &651665634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651665632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34b889b66ad07c4496184fe997a31fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameJam.ChangeAnimatorValue
+  animationParameter: EndMinigame
+  _animator: {fileID: 278604669}
 --- !u!1 &992353844
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1279,7 @@ Transform:
   m_Children:
   - {fileID: 1897451531}
   - {fileID: 1861226911}
+  - {fileID: 651665633}
   m_Father: {fileID: 278604671}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1097118106
