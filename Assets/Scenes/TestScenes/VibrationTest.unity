@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 1406622265}
   - component: {fileID: 1406622266}
   m_Layer: 0
-  m_Name: VibrationManager
+  m_Name: ThwWholeToy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -428,7 +428,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Vibration_Test
   _inputManager: {fileID: 875187811}
-  _sweetspotRange: {x: 0.7, y: 0.9}
+  _sweetSpotX: {x: 0.4, y: 0.6}
+  _sweetSpotY: {x: 0.2, y: 0.5}
+  _timeToSolve: 3
+  _TimeToDealDmg: 5
+  onSweetSpotEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onSweetSpotExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onTimerReached:
+    m_PersistentCalls:
+      m_Calls: []
+  onDamageTaken:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
