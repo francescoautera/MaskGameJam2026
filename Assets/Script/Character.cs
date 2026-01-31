@@ -11,6 +11,7 @@ public class Character : MonoBehaviour
 {
   public UnityEvent OnEndDialogue;
   public UnityEvent onEndCalculatePoints;
+  public UnityEvent OnStartCalculatePoints;
   
   public DialogueData currentDialogueData;
   public List<PointsDialogue> pointsDialogues = new List<PointsDialogue>();
@@ -28,8 +29,10 @@ public class Character : MonoBehaviour
   public MaskData _leftEyeMask;
   public MaskData _noseMask;
   public MaskData mouthMask;
-
+  
+  [Header("LoadSprites")]
   public bool loadSprites;
+  
   [Header("Sprite Faces")] 
   [SerializeField]  SpriteRenderer frontSprite;
   [SerializeField]  SpriteRenderer rightEyeSprite;
@@ -98,6 +101,7 @@ public class Character : MonoBehaviour
     {
       if (points.points.x <= point && points.points.y >= point)
       {
+        OnStartCalculatePoints?.Invoke();
         points.pointDialogue.name = currentNameCharacter;
         FindFirstObjectByType<DialogueTest>().StartDialogue(points.pointDialogue,onEndCalculatePoints);
         return;
