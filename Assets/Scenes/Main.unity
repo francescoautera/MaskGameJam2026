@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toy
       objectReference: {fileID: 0}
+    - target: {fileID: 3777509194208534376, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
       propertyPath: _timeToSolve
       value: 1
@@ -927,18 +931,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameJam.InputManager, Assembly-CSharp
         m_MethodName: EnableInput
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 507675920}
-        m_TargetAssemblyTypeName: TheWholeToy, Assembly-CSharp
-        m_MethodName: SetIsActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2139,7 +2131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4238477881114396345, guid: b78a24da7f0f1894a81cc6b2001b4bc8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -55.004997
+      value: -35.004997
       objectReference: {fileID: 0}
     - target: {fileID: 4363927962995097470, guid: b78a24da7f0f1894a81cc6b2001b4bc8, type: 3}
       propertyPath: m_Name
@@ -3407,7 +3399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6639940202576451920, guid: b2c758aa98378bc4ebf224ccd9ac81ad, type: 3}
       propertyPath: InputPressed.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6639940202576451920, guid: b2c758aa98378bc4ebf224ccd9ac81ad, type: 3}
       propertyPath: InputReleased.m_PersistentCalls.m_Calls.Array.size
@@ -4828,7 +4820,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.07, z: 7.5}
-  m_LocalScale: {x: 1.87, y: 1.87, z: 1.87}
+  m_LocalScale: {x: 1.8999999, y: 1.8999999, z: 1.8999999}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1925661268}
