@@ -7,6 +7,7 @@ namespace GameJam
     public class InputManager : MonoBehaviour
     {
         private InputActionMap _inputActionMap;
+        
 
         private InputAction _frontSelectionAction;
         private InputAction _leftEyeSelectionAction;
@@ -49,6 +50,9 @@ namespace GameJam
             _noseSelectionAction.canceled += OnNoseSelectionCanceled;
             _mouthSelectionAction.started += OnMouthSelectionStarted;
             _mouthSelectionAction.canceled += OnMouthSelectionCanceled;
+            
+            _inputActionMap.Disable();
+            DisableInput();
         }
 
 
@@ -64,6 +68,15 @@ namespace GameJam
         public event Action MouthSelectionStarted;
         public event Action MouthSelectionCanceled;
 
+        public void DisableInput()
+        {
+            _inputActionMap.Disable();
+        }
+
+        public void EnableInput()
+        {
+            _inputActionMap.Enable();
+        }
         private void OnLeftStickPositionChanged(InputAction.CallbackContext obj)
         {
             Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
