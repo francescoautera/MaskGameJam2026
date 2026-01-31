@@ -32,6 +32,9 @@ public class Bootstrapper : MonoBehaviour
     [Header("DialogueRef")] 
      public List<DialogueData> _dialogueDatas = new List<DialogueData>();
 
+
+    [Header("SweetsPot")] public List<SweetsPotContainer> _SweetsPotContainers = new List<SweetsPotContainer>();
+
     private int index;
 
     public void SetupCharacter()
@@ -52,6 +55,7 @@ public class Bootstrapper : MonoBehaviour
         };
         index++;
         _character.Setup(loadData);
+        FindFirstObjectByType<TheWholeToy>().SetValues(_SweetsPotContainers[Random.Range(0,_SweetsPotContainers.Count)]);
     }
 
     public void LoadToMenu()

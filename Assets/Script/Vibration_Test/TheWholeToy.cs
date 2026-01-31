@@ -58,6 +58,14 @@ public class TheWholeToy : MonoBehaviour
         valueY = obj.y;
     }
 
+    public void SetValues(SweetsPotContainer sweetsPotContainer)
+    {
+        _sweetSpotX = sweetsPotContainer.sweetSpotX;
+        _sweetSpotY = sweetsPotContainer.sweetSpotY;
+        _closeToSweetSpotX = sweetsPotContainer.closeToSweetSpotX;
+        _closeToSweetSpotY = sweetsPotContainer.closeToSweetSpotY;
+    }
+
     private void CheckSweetSpot()
     {
         if (!isInSweetSpot)
@@ -182,6 +190,8 @@ public class TheWholeToy : MonoBehaviour
 
     public void Reset()
     {
+        isInSweetSpot = false;
+        
         pad.SetMotorSpeeds(0, 0);
 
         dmgTimer = 0;
@@ -191,4 +201,13 @@ public class TheWholeToy : MonoBehaviour
 
 
     public void SetIsActive(bool active) => isActive = active;
+}
+
+[Serializable]
+public class SweetsPotContainer
+{
+    public Vector2 sweetSpotX;
+    public Vector2 sweetSpotY;
+    public Vector2 closeToSweetSpotX;
+    public Vector2 closeToSweetSpotY;
 }
