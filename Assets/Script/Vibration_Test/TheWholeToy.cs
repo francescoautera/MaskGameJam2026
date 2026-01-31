@@ -65,11 +65,13 @@ public class TheWholeToy : MonoBehaviour
             dmgTimer += Time.deltaTime;
         }
 
-        int targetX = 0;
-        int targetY = 0;
+        float targetX = 0;
+        float targetY = 0;
 
         var isXNegative = _sweetSpotX.x < 0;
         var isYNegative = _sweetSpotY.x < 0;
+
+        #region Calculations for Sweet Spot
 
         if (isXNegative && isYNegative) //If both are negative
         {
@@ -139,6 +141,43 @@ public class TheWholeToy : MonoBehaviour
         }
 
         pad.SetMotorSpeeds(targetX, targetY);
+
+        if (isInSweetSpot)
+        {
+            return;
+        }
+
+        #endregion
+
+        #region Calculations for close to sweet spot
+
+        if (isXNegative && isYNegative) //If both are negative
+        {
+            targetX = valueX < _closeToSweetSpotX.x && valueX > _closeToSweetSpotX.y && valueY < 0 ? .1f : 0;
+            targetY = valueY < _closeToSweetSpotY.x && valueY > _closeToSweetSpotY.y && valueX < 0 ? .1f : 0;
+        }
+
+        if (isXNegative && !isYNegative) //If only X values are negative
+        {
+            targetX = valueX < _closeToSweetSpotX.x && valueX > _closeToSweetSpotX.y && valueY > 0 ? .1f : 0;
+            targetY = valueY > _closeToSweetSpotY.x && valueY < _closeToSweetSpotY.y && valueX < 0 ? .1f : 0;
+        }
+
+        if (!isXNegative && isYNegative) //If only Y values are negative
+        {
+            targetX = valueX > _closeToSweetSpotX.x && valueX < _closeToSweetSpotX.y && valueY < 0 ? .1f : 0;
+            targetY = valueY < _closeToSweetSpotY.x && valueY > _closeToSweetSpotY.y && valueX > 0 ? .1f : 0;
+        }
+
+        if (!isXNegative && !isYNegative) //If both are positive
+        {
+            targetX = valueX > _closeToSweetSpotX.x && valueX < _closeToSweetSpotX.y && valueY > 0 ? .1f : 0;
+            targetY = valueY > _closeToSweetSpotY.x && valueY < _closeToSweetSpotY.y && valueX > 0 ? .1f : 0;
+        }
+
+        pad.SetMotorSpeeds(targetX, targetY);
+
+        #endregion
     }
 
     public void Reset()

@@ -410,6 +410,22 @@ PrefabInstance:
       propertyPath: _sweetSpotY.y
       value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: _closeToSweetSpotX.x
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: _closeToSweetSpotX.y
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: _closeToSweetSpotY.x
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: _closeToSweetSpotY.y
+      value: -0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
