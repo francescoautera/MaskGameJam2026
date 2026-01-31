@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 namespace GameJam
@@ -17,6 +18,12 @@ namespace GameJam
         [SerializeField] private GameObject _mouthMask;
         [SerializeField] private Transform _maskPivotTransform;
 
+        public bool _rightMaskBoolSet;
+        public bool _frontMaskSet;
+        public bool _leftEyeMaskBool;
+        public bool _noseMaskBool;
+        public bool _mouthMaskBool;
+        
 
         [SerializeField] private float _minInputMagnitude = 0.1f;
         [SerializeField] private float _maskMovementIntensity = 0.1f;
@@ -43,58 +50,77 @@ namespace GameJam
 
         private void HandleLeftStickMovement(Vector2 obj)
         {
-            _movementVector = new Vector3(obj.x, obj.y, 0f);
+           // _movementVector = new Vector3(obj.x, obj.y, 0f);
         }
 
+
+        public void Reset()
+        {
+            _rightMaskBoolSet = false;
+            _frontMaskSet = false;
+            _leftEyeMaskBool = false;
+            _noseMaskBool = false;
+            _mouthMaskBool = false;
+        }
 
         private void HandleNoseSelectionStarted()
         {
             _noseMask.SetActive(true);
+            _noseMaskBool = true;
         }
 
         private void HandleNoseSelectionCanceled()
         {
             _noseMask.SetActive(false);
+            _noseMaskBool = false;
         }
 
         private void HandleRightEyeSelectionStarted()
         {
             _rightEyeMask.SetActive(true);
+            _rightMaskBoolSet = true;
         }
 
         private void HandleRightEyeSelectionCanceled()
         {
             _rightEyeMask.SetActive(false);
+            _rightMaskBoolSet = false;
         }
 
         private void HandleLeftEyeSelectionStarted()
         {
             _leftEyeMask.SetActive(true);
+            _leftEyeMaskBool = true;
         }
 
         private void HandleLeftEyeSelectionCanceled()
         {
             _leftEyeMask.SetActive(false);
+            _leftEyeMaskBool = false;
         }
 
         private void HandleMouthSelectionStarted()
         {
             _mouthMask.SetActive(true);
+            _mouthMaskBool = true;
         }
 
         private void HandleMouthSelectionCanceled()
         {
             _mouthMask.SetActive(false);
+            _mouthMaskBool = false;
         }
 
         private void HandleFrontSelectionStarted()
         {
             _frontMask.SetActive(true);
+            _frontMaskSet = true;
         }
 
         private void HandleFrontSelectionCanceled()
         {
             _frontMask.SetActive(false);
+            _frontMaskSet = false;
         }
     }
 }

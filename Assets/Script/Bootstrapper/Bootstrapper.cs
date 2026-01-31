@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace GameJam
@@ -25,6 +27,7 @@ public class Bootstrapper : MonoBehaviour
     [Header("Reference")]
     [SerializeField] Character _character;
 
+    [SerializeField] private CanvasGroupController _canvasGroupController;
 
     [Header("DialogueRef")] 
      public List<DialogueData> _dialogueDatas = new List<DialogueData>();
@@ -49,6 +52,28 @@ public class Bootstrapper : MonoBehaviour
         };
         index++;
         _character.Setup(loadData);
+    }
+
+    public void LoadToMenu()
+    {
+        
+        _canvasGroupController.Show(()=>
+            StartCoroutine(UnloadCor())
+        );
+        
+        IEnumerator UnloadCor()
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+            yield return null;
+            SceneManager.UnloadSceneAsync("Main");
+        }
+    }
+
+    public void Reload()
+    {
+        _canvasGroupController.Show(()=>
+                SceneManager.LoadScene("Main")
+        );
     }
 
 }
