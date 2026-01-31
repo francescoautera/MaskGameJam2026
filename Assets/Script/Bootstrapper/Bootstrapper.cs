@@ -80,6 +80,8 @@ public class Bootstrapper : MonoBehaviour
         );
     }
 
+    public bool IsFirstEnemy() => index == 1;
+
 }
 
 [Serializable]

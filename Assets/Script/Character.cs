@@ -135,6 +135,8 @@ namespace GameJam
                 OnDeath?.Invoke();
             }
         }
+
+       
     }
 
     [Serializable]
