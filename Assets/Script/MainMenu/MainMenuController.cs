@@ -16,6 +16,9 @@ public class MainMenuController : MonoBehaviour
     private void Start()
     {
         _canvasGroupController.Close(null);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        
     }
 
     public void ChangeToLevel()
@@ -24,6 +27,8 @@ public class MainMenuController : MonoBehaviour
             StartCoroutine(UnloadCor())
            );
     }
+
+    public void QUit() => Application.Quit();
 
     IEnumerator UnloadCor()
     {

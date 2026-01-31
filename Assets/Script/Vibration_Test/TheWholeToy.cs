@@ -19,6 +19,8 @@ public class TheWholeToy : MonoBehaviour
     public UnityEvent onTimerReached;
     public UnityEvent onDamageTaken;
 
+    public bool isActive = false;
+    
     private float valueX;
     private float valueY;
     private float sweetSpotTimer;
@@ -33,10 +35,16 @@ public class TheWholeToy : MonoBehaviour
         pad = Gamepad.current;
 
         _inputManager.LeftStickPositionChanged += SetAbsoluteValues;
+        
     }
+    
 
     private void Update()
     {
+        if (!isActive)
+        {
+            return;
+        }
         CheckSweetSpot();
     }
 
@@ -128,4 +136,7 @@ public class TheWholeToy : MonoBehaviour
 
         pad.SetMotorSpeeds(targetX, targetY);
     }
+
+
+    public void SetIsActive(bool active) => isActive = active;
 }
