@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using EasyButtons;
 using UnityEngine;
@@ -17,6 +18,11 @@ namespace GameJam
         private void Start()
         {
             _currentCutLevel = _material.GetFloat(CutLevel);
+        }
+
+        private void OnDestroy()
+        {
+            _material.SetFloat(CutLevel, 1);
         }
 
         [Button]
