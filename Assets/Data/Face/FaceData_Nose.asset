@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FaceData_Nose
   m_EditorClassIdentifier: Assembly-CSharp::GameJam.FaceData
   faceSprite: {fileID: 21300000, guid: a163703045b08744a9bd05dadbbdabc2, type: 3}
-  needToSetFace: 0
+  needToSetFace: 1

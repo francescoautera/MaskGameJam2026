@@ -18,6 +18,8 @@ namespace GameJam
         private InputAction _mouthSelectionAction;
         private InputAction _stickMovementAction;
 
+        private InputAction _tutorialAction;
+
         private int _buttonsPressed = 0;
 
         [SerializeField] private InputActionAsset _inputActionAsset;
@@ -30,10 +32,13 @@ namespace GameJam
         private const string RIGHT_EYE_SELECTION_KEY = "RightEyeSelection";
         private const string NOSE_SELECTION_KEY = "NoseSelection";
         private const string MOUTH_SELECTION_KEY = "MouthSelection";
+        private const string TUTORIAL_KEY = "ShowTutorial";
 
         public UnityEvent InputPressed;
         public UnityEvent InputReleased;
         public UnityEvent OnAllInputReleased;
+        public UnityEvent OntriggerPressed;
+        public UnityEvent OntriggerReleased;
 
         private void Start()
         {
@@ -45,6 +50,7 @@ namespace GameJam
             _rightEyeSelectionAction = _inputActionMap.FindAction(RIGHT_EYE_SELECTION_KEY);
             _noseSelectionAction = _inputActionMap.FindAction(NOSE_SELECTION_KEY);
             _mouthSelectionAction = _inputActionMap.FindAction(MOUTH_SELECTION_KEY);
+            _tutorialAction = _inputActionMap.FindAction(TUTORIAL_KEY);
 
             _stickMovementAction.performed += OnLeftStickPositionChanged;
             _stickMovementAction.canceled += OnLeftStickPositionChanged;
@@ -59,8 +65,21 @@ namespace GameJam
             _mouthSelectionAction.started += OnMouthSelectionStarted;
             _mouthSelectionAction.canceled += OnMouthSelectionCanceled;
 
+            _tutorialAction.started += OnTutorialStarted;
+            _tutorialAction.canceled += OnTutorialCanceled;
+
             _inputActionMap.Disable();
             DisableInput();
+        }
+
+        private void OnTutorialCanceled(InputAction.CallbackContext obj)
+        {
+            OntriggerReleased?.Invoke();
+        }
+
+        private void OnTutorialStarted(InputAction.CallbackContext obj)
+        {
+            OntriggerPressed?.Invoke();
         }
 
 
@@ -81,6 +100,7 @@ namespace GameJam
         {
             _inputActionMap.Disable();
             _buttonsPressed = 0;
+            CheckInputs();
         }
 
         [Button]

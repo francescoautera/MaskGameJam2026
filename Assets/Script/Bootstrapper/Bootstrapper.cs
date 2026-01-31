@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace GameJam
@@ -25,9 +27,13 @@ public class Bootstrapper : MonoBehaviour
     [Header("Reference")]
     [SerializeField] Character _character;
 
+    [SerializeField] private CanvasGroupController _canvasGroupController;
 
     [Header("DialogueRef")] 
      public List<DialogueData> _dialogueDatas = new List<DialogueData>();
+
+
+    [Header("SweetsPot")] public List<SweetsPotContainer> _SweetsPotContainers = new List<SweetsPotContainer>();
 
     private int index;
 
@@ -49,7 +55,32 @@ public class Bootstrapper : MonoBehaviour
         };
         index++;
         _character.Setup(loadData);
+        FindFirstObjectByType<TheWholeToy>().SetValues(_SweetsPotContainers[Random.Range(0,_SweetsPotContainers.Count)]);
     }
+
+    public void LoadToMenu()
+    {
+        
+        _canvasGroupController.Show(()=>
+            StartCoroutine(UnloadCor())
+        );
+        
+        IEnumerator UnloadCor()
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+            yield return null;
+            SceneManager.UnloadSceneAsync("Main");
+        }
+    }
+
+    public void Reload()
+    {
+        _canvasGroupController.Show(()=>
+                SceneManager.LoadScene("Main")
+        );
+    }
+
+    public bool IsFirstEnemy() => index == 1;
 
 }
 
