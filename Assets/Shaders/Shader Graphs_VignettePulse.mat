@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CutLevel: 0.38
+    - _CutLevel: 1
     - _PulseAmplitude: 0.02
     - _PulseFrequency: 4.8
     - _RadialNoiseSpeed: 0.1

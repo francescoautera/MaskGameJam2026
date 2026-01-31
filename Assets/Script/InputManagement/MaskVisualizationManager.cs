@@ -15,10 +15,12 @@ namespace GameJam
         [SerializeField] private GameObject _rightEyeMask;
         [SerializeField] private GameObject _noseMask;
         [SerializeField] private GameObject _mouthMask;
+        [SerializeField] private Transform _maskPivotTransform;
+
 
         [SerializeField] private float _minInputMagnitude = 0.1f;
-        [SerializeField] private float _maskMovementSpeed = 0.1f;
- 
+        [SerializeField] private float _maskMovementIntensity = 0.1f;
+
         private void Awake()
         {
             _inputManager = GetComponent<InputManager>();
@@ -43,10 +45,11 @@ namespace GameJam
         {
             if (_movementVector.sqrMagnitude <= _minInputMagnitude * _minInputMagnitude)
             {
+                _mask.transform.position = _maskPivotTransform.position;
                 return;
             }
 
-            _mask.transform.position += _movementVector * (_maskMovementSpeed * Time.deltaTime);
+            _mask.transform.position = _maskPivotTransform.position + _movementVector * _maskMovementIntensity;
         }
 
         private void HandleLeftStickMovement(Vector2 obj)
