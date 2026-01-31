@@ -37,7 +37,7 @@ public class TheWholeToy : MonoBehaviour
     {
         pad = Gamepad.current;
 
-        _inputManager.LeftStickPositionChanged += SetAbsoluteValues;
+        _inputManager.LeftStickPositionChanged += ReadValues;
         
     }
     
