@@ -79,7 +79,7 @@ namespace GameJam
         }
         private void OnLeftStickPositionChanged(InputAction.CallbackContext obj)
         {
-            //Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
+            Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
             LeftStickPositionChanged?.Invoke(obj.ReadValue<Vector2>());
         }
 

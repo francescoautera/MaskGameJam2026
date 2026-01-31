@@ -7,14 +7,17 @@ public class TheWholeToy : MonoBehaviour
 {
     [SerializeField] private InputManager _inputManager;
 
-    [SerializeField] private Vector2 _sweetSpotX;
-    [SerializeField] private Vector2 _sweetSpotY;
-
-    [SerializeField] private float _timeToSolve;
+    [Header("Timers")] [SerializeField] private float _timeToSolve;
     [SerializeField] private float _TimeToDealDmg;
 
+    [Header("SweetSpots Ranges")] [SerializeField]
+    private Vector2 _sweetSpotX;
 
-    public UnityEvent onSweetSpotEnter;
+    [SerializeField] private Vector2 _sweetSpotY;
+    [SerializeField] private Vector2 _closeToSweetSpotX;
+    [SerializeField] private Vector2 _closeToSweetSpotY;
+
+    [Header("Events")] public UnityEvent onSweetSpotEnter;
     public UnityEvent onSweetSpotExit;
     public UnityEvent onTimerReached;
     public UnityEvent onDamageTaken;
@@ -32,7 +35,7 @@ public class TheWholeToy : MonoBehaviour
     {
         pad = Gamepad.current;
 
-        _inputManager.LeftStickPositionChanged += SetAbsoluteValues;
+        _inputManager.LeftStickPositionChanged += ReadValues;
     }
 
     private void Update()
@@ -40,7 +43,7 @@ public class TheWholeToy : MonoBehaviour
         CheckSweetSpot();
     }
 
-    private void SetAbsoluteValues(Vector2 obj)
+    private void ReadValues(Vector2 obj)
     {
         valueX = obj.x;
         valueY = obj.y;
@@ -61,8 +64,8 @@ public class TheWholeToy : MonoBehaviour
 
         if (isXNegative && isYNegative) //If both are negative
         {
-            targetX = valueX < _sweetSpotX.x && valueX > _sweetSpotX.y ? 1 : 0;
-            targetY = valueY < _sweetSpotY.x && valueY > _sweetSpotY.y ? 1 : 0;
+            targetX = valueX < _sweetSpotX.x && valueX > _sweetSpotX.y && valueY < 0 ? 1 : 0;
+            targetY = valueY < _sweetSpotY.x && valueY > _sweetSpotY.y && valueX < 0 ? 1 : 0;
         }
 
         if (isXNegative && !isYNegative) //If only X values are negative
