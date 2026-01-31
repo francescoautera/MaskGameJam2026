@@ -106,7 +106,6 @@ namespace GameJam
                 if (points.points.x <= point && points.points.y >= point)
                 {
                     OnStartCalculatePoints?.Invoke();
-                    points.pointDialogue.name = currentNameCharacter;
                     FindFirstObjectByType<DialogueTest>().StartDialogue(points.pointDialogue, onEndCalculatePoints);
                     return;
                 }
