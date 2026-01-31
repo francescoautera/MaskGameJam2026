@@ -176,6 +176,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931544641591484753, guid: cf150285cea5c97449fa61a354f2fb23, type: 3}
       propertyPath: _timeToSolve
       value: 1
       objectReference: {fileID: 0}

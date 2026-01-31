@@ -69,7 +69,7 @@ namespace GameJam
             _tutorialAction.canceled += OnTutorialCanceled;
 
             _inputActionMap.Disable();
-            DisableInput();
+            //DisableInput();
         }
 
         private void OnTutorialCanceled(InputAction.CallbackContext obj)
