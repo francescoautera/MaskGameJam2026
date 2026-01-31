@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class TheWholeToy : MonoBehaviour
 {
-    [SerializeField] private InputManager _inputManager;
+    [SerializeField] public InputManager _inputManager;
 
     [Header("Timers")] [SerializeField] private float _timeToSolve;
     [SerializeField] private float _TimeToDealDmg;
@@ -30,7 +30,8 @@ public class TheWholeToy : MonoBehaviour
     private float sweetSpotTimer;
     private float dmgTimer;
 
-    private bool isInSweetSpot;
+    public bool isInSweetSpot;
+    public bool isInCloseRange;
 
     private Gamepad pad;
 
@@ -110,6 +111,8 @@ public class TheWholeToy : MonoBehaviour
         {
             isInSweetSpot = true;
 
+            isInCloseRange = false;
+
             Debug.Log("Entrato in sweet spot");
 
             onSweetSpotEnter?.Invoke();
@@ -176,6 +179,15 @@ public class TheWholeToy : MonoBehaviour
         }
 
         pad.SetMotorSpeeds(targetX, targetY);
+
+        if (targetX < .1f && targetY < .1f)
+        {
+            isInCloseRange = false;
+        }
+        else
+        {
+            isInCloseRange = true;
+        }
 
         #endregion
     }
