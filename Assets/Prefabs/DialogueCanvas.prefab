@@ -318,8 +318,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lorem ipsum eoezza
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77dc4fd48f63d0948b4dc7cb9072cf0c, type: 2}
+  m_sharedMaterial: {fileID: -4455642288830006860, guid: 77dc4fd48f63d0948b4dc7cb9072cf0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -455,8 +455,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sono Djanni del bar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 77dc4fd48f63d0948b4dc7cb9072cf0c, type: 2}
+  m_sharedMaterial: {fileID: -4455642288830006860, guid: 77dc4fd48f63d0948b4dc7cb9072cf0c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
