@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using EasyButtons;
 using GameJam;
@@ -25,8 +26,10 @@ public class DialogueTest : MonoBehaviour
         StartCoroutine(DisplayDialogue());
     }
 
-    public void StartDialogue(DialogueData dialogueData)
+    public void StartDialogue(DialogueData dialogueData,UnityEvent OnEnd)
     {
+        OnEndDialogue.RemoveAllListeners();
+        OnEndDialogue = OnEnd;
         DialogueData = dialogueData;
         _line.text = "";
         _name.text = dialogueData.Name;
