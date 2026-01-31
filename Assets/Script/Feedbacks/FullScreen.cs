@@ -13,9 +13,9 @@ namespace GameJam
         [SerializeField] private int _stepsCount = 3;
         [SerializeField, Range(0, 1)] private float _maxLevel = 0.5f;
 
-        public float _currentCutLevel;
+        private float _currentCutLevel;
 
-        public float _step;
+        private float _step;
 
         private void Start()
         {
