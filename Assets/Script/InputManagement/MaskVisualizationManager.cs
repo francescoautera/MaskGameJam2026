@@ -41,17 +41,6 @@ namespace GameJam
             _inputManager.MouthSelectionCanceled += HandleMouthSelectionCanceled;
         }
 
-        private void Update()
-        {
-            if (_movementVector.sqrMagnitude <= _minInputMagnitude * _minInputMagnitude)
-            {
-                _mask.transform.position = _maskPivotTransform.position;
-                return;
-            }
-
-            _mask.transform.position = _maskPivotTransform.position + _movementVector * _maskMovementIntensity;
-        }
-
         private void HandleLeftStickMovement(Vector2 obj)
         {
             _movementVector = new Vector3(obj.x, obj.y, 0f);
