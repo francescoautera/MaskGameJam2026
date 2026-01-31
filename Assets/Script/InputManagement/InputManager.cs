@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 namespace GameJam
@@ -7,7 +8,7 @@ namespace GameJam
     public class InputManager : MonoBehaviour
     {
         private InputActionMap _inputActionMap;
-        
+
 
         private InputAction _frontSelectionAction;
         private InputAction _leftEyeSelectionAction;
@@ -15,6 +16,8 @@ namespace GameJam
         private InputAction _noseSelectionAction;
         private InputAction _mouthSelectionAction;
         private InputAction _stickMovementAction;
+
+        private int _buttonsPressed = 0;
 
         [SerializeField] private InputActionAsset _inputActionAsset;
 
@@ -26,6 +29,10 @@ namespace GameJam
         private const string RIGHT_EYE_SELECTION_KEY = "RightEyeSelection";
         private const string NOSE_SELECTION_KEY = "NoseSelection";
         private const string MOUTH_SELECTION_KEY = "MouthSelection";
+
+        public UnityEvent InputPressed;
+        public UnityEvent InputReleased;
+        public UnityEvent OnAllInputReleased;
 
         private void Start()
         {
@@ -50,7 +57,7 @@ namespace GameJam
             _noseSelectionAction.canceled += OnNoseSelectionCanceled;
             _mouthSelectionAction.started += OnMouthSelectionStarted;
             _mouthSelectionAction.canceled += OnMouthSelectionCanceled;
-            
+
             _inputActionMap.Disable();
             DisableInput();
         }
@@ -68,15 +75,18 @@ namespace GameJam
         public event Action MouthSelectionStarted;
         public event Action MouthSelectionCanceled;
 
+
         public void DisableInput()
         {
             _inputActionMap.Disable();
+            _buttonsPressed = 0;
         }
 
         public void EnableInput()
         {
             _inputActionMap.Enable();
         }
+
         private void OnLeftStickPositionChanged(InputAction.CallbackContext obj)
         {
             Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
@@ -85,52 +95,88 @@ namespace GameJam
 
         private void OnFrontSelectionStarted(InputAction.CallbackContext obj)
         {
+            InputPressed?.Invoke();
             FrontSelectionStarted?.Invoke();
+            _buttonsPressed++;
         }
 
         private void OnFrontSelectionCanceled(InputAction.CallbackContext obj)
         {
+            InputReleased?.Invoke();
             FrontSelectionCanceled?.Invoke();
+            _buttonsPressed--;
+            CheckInputs();
         }
-        
+
         private void OnLeftEyeSelectionStarted(InputAction.CallbackContext obj)
         {
+            InputPressed?.Invoke();
+            _buttonsPressed++;
             LeftEyeSelectionStarted?.Invoke();
         }
 
         private void OnLeftEyeSelectionCanceled(InputAction.CallbackContext obj)
         {
+            InputReleased?.Invoke();
+            _buttonsPressed--;
             LeftEyeSelectionCanceled?.Invoke();
+            CheckInputs();
         }
 
         private void OnRightEyeSelectionStarted(InputAction.CallbackContext obj)
         {
+            InputPressed?.Invoke();
+            _buttonsPressed++;
             RightEyeSelectionStarted?.Invoke();
         }
 
         private void OnRightEyeSelectionCanceled(InputAction.CallbackContext obj)
         {
+            InputReleased?.Invoke();
+            _buttonsPressed--;
             RightEyeSelectionCanceled?.Invoke();
+            CheckInputs();
         }
 
         private void OnNoseSelectionStarted(InputAction.CallbackContext obj)
         {
+            InputPressed?.Invoke();
+            _buttonsPressed++;
             NoseSelectionStarted?.Invoke();
         }
 
         private void OnNoseSelectionCanceled(InputAction.CallbackContext obj)
         {
+            InputReleased?.Invoke();
+            _buttonsPressed--;
             NoseSelectionCanceled?.Invoke();
+            CheckInputs();
         }
 
         private void OnMouthSelectionStarted(InputAction.CallbackContext obj)
         {
+            InputPressed?.Invoke();
+            _buttonsPressed++;
             MouthSelectionStarted?.Invoke();
         }
 
         private void OnMouthSelectionCanceled(InputAction.CallbackContext obj)
         {
+            InputReleased?.Invoke();
+            _buttonsPressed--;
             MouthSelectionCanceled?.Invoke();
+            CheckInputs();
+        }
+
+        private void CheckInputs()
+        {
+            if (_buttonsPressed > 0)
+            {
+                return;
+            }
+
+            _buttonsPressed = 0;
+            OnAllInputReleased?.Invoke();
         }
     }
 }
