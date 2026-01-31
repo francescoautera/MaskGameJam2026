@@ -13,11 +13,13 @@ namespace GameJam
         private InputAction _rightEyeSelectionAction;
         private InputAction _noseSelectionAction;
         private InputAction _mouthSelectionAction;
+        private InputAction _stickMovementAction;
 
         [SerializeField] private InputActionAsset _inputActionAsset;
 
         private const string PLAYER_MAP = "Player";
 
+        private const string LEFT_STICK_MOVEMENT_KEY = "Move";
         private const string FRONT_SELECTION_KEY = "FrontSelection";
         private const string LEFT_EYE_SELECTION_KEY = "LeftEyeSelection";
         private const string RIGHT_EYE_SELECTION_KEY = "RightEyeSelection";
@@ -28,12 +30,15 @@ namespace GameJam
         {
             _inputActionMap = _inputActionAsset.FindActionMap(PLAYER_MAP);
 
+            _stickMovementAction = _inputActionMap.FindAction(LEFT_STICK_MOVEMENT_KEY);
             _frontSelectionAction = _inputActionMap.FindAction(FRONT_SELECTION_KEY);
             _leftEyeSelectionAction = _inputActionMap.FindAction(LEFT_EYE_SELECTION_KEY);
             _rightEyeSelectionAction = _inputActionMap.FindAction(RIGHT_EYE_SELECTION_KEY);
             _noseSelectionAction = _inputActionMap.FindAction(NOSE_SELECTION_KEY);
             _mouthSelectionAction = _inputActionMap.FindAction(MOUTH_SELECTION_KEY);
 
+            _stickMovementAction.performed += OnLeftStickPositionChanged;
+            _stickMovementAction.canceled += OnLeftStickPositionChanged;
             _frontSelectionAction.started += OnFrontSelectionStarted;
             _frontSelectionAction.canceled += OnFrontSelectionCanceled;
             _leftEyeSelectionAction.started += OnLeftEyeSelectionStarted;
@@ -46,6 +51,8 @@ namespace GameJam
             _mouthSelectionAction.canceled += OnMouthSelectionCanceled;
         }
 
+
+        public event Action<Vector2> LeftStickPositionChanged;
         public event Action FrontSelectionStarted;
         public event Action FrontSelectionCanceled;
         public event Action LeftEyeSelectionStarted;
@@ -57,40 +64,39 @@ namespace GameJam
         public event Action MouthSelectionStarted;
         public event Action MouthSelectionCanceled;
 
+        private void OnLeftStickPositionChanged(InputAction.CallbackContext obj)
+        {
+            Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
+            LeftStickPositionChanged?.Invoke(obj.ReadValue<Vector2>());
+        }
+
         private void OnFrontSelectionStarted(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnFrontSelectionStarted");
             FrontSelectionStarted?.Invoke();
         }
 
         private void OnFrontSelectionCanceled(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnFrontSelectionCanceled");
             FrontSelectionCanceled?.Invoke();
         }
-
-
+        
         private void OnLeftEyeSelectionStarted(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnLeftEyeSelectionStarted");
             LeftEyeSelectionStarted?.Invoke();
         }
 
         private void OnLeftEyeSelectionCanceled(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnLeftEyeSelectionCanceled");
             LeftEyeSelectionCanceled?.Invoke();
         }
 
         private void OnRightEyeSelectionStarted(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnRightEyeSelectionStarted");
             RightEyeSelectionStarted?.Invoke();
         }
 
         private void OnRightEyeSelectionCanceled(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnRightEyeSelectionCanceled");
             RightEyeSelectionCanceled?.Invoke();
         }
 
