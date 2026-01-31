@@ -1,4 +1,5 @@
 using System;
+using EasyButtons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,7 @@ namespace GameJam
     public class InputManager : MonoBehaviour
     {
         private InputActionMap _inputActionMap;
-        
+
 
         private InputAction _frontSelectionAction;
         private InputAction _leftEyeSelectionAction;
@@ -50,7 +51,7 @@ namespace GameJam
             _noseSelectionAction.canceled += OnNoseSelectionCanceled;
             _mouthSelectionAction.started += OnMouthSelectionStarted;
             _mouthSelectionAction.canceled += OnMouthSelectionCanceled;
-            
+
             _inputActionMap.Disable();
             DisableInput();
         }
@@ -73,13 +74,15 @@ namespace GameJam
             _inputActionMap.Disable();
         }
 
+        [Button]
         public void EnableInput()
         {
             _inputActionMap.Enable();
         }
+
         private void OnLeftStickPositionChanged(InputAction.CallbackContext obj)
         {
-            Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
+            //Debug.Log("OnLeftStickMovementPerformed" + obj.ReadValue<Vector2>());
             LeftStickPositionChanged?.Invoke(obj.ReadValue<Vector2>());
         }
 
@@ -92,7 +95,7 @@ namespace GameJam
         {
             FrontSelectionCanceled?.Invoke();
         }
-        
+
         private void OnLeftEyeSelectionStarted(InputAction.CallbackContext obj)
         {
             LeftEyeSelectionStarted?.Invoke();

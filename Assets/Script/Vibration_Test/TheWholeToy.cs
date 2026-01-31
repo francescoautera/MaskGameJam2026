@@ -79,20 +79,20 @@ public class TheWholeToy : MonoBehaviour
 
         if (isXNegative && !isYNegative) //If only X values are negative
         {
-            targetX = valueX < _sweetSpotX.x && valueX > _sweetSpotX.y ? 1 : 0;
-            targetY = valueY > _sweetSpotY.x && valueY < _sweetSpotY.y ? 1 : 0;
+            targetX = valueX < _sweetSpotX.x && valueX > _sweetSpotX.y && valueY > 0 ? 1 : 0;
+            targetY = valueY > _sweetSpotY.x && valueY < _sweetSpotY.y && valueX < 0 ? 1 : 0;
         }
 
         if (!isXNegative && isYNegative) //If only Y values are negative
         {
-            targetX = valueX > _sweetSpotX.x && valueX < _sweetSpotX.y ? 1 : 0;
-            targetY = valueY < _sweetSpotY.x && valueY > _sweetSpotY.y ? 1 : 0;
+            targetX = valueX > _sweetSpotX.x && valueX < _sweetSpotX.y && valueY < 0 ? 1 : 0;
+            targetY = valueY < _sweetSpotY.x && valueY > _sweetSpotY.y && valueX > 0 ? 1 : 0;
         }
 
         if (!isXNegative && !isYNegative) //If both are positive
         {
-            targetX = valueX > _sweetSpotX.x && valueX < _sweetSpotX.y ? 1 : 0;
-            targetY = valueY > _sweetSpotY.x && valueY < _sweetSpotY.y ? 1 : 0;
+            targetX = valueX > _sweetSpotX.x && valueX < _sweetSpotX.y && valueY > 0 ? 1 : 0;
+            targetY = valueY > _sweetSpotY.x && valueY < _sweetSpotY.y && valueX > 0 ? 1 : 0;
         }
 
         if (dmgTimer >= _TimeToDealDmg)
