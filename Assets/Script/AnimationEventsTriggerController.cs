@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,11 +17,31 @@ namespace GameJam
         Event7,
         Event8,
         Event9,
-        Event10,
+        Event10
     }
 
     public class AnimationEventsTriggerController : MonoBehaviour
     {
-        public SerializedDictionary<EventsAnimation, UnityEvent> animationsEvent;
+        public List<AnimationClass> animationsEvent = new List<AnimationClass>();
+
+
+        public void ExecuteEvent(EventsAnimation eventsAnimation)
+        {
+            foreach (var eventAnim in animationsEvent)
+            {
+                if (eventAnim.EventsAnimation == eventsAnimation)
+                {
+                    eventAnim._UnityEvent?.Invoke();
+                    return;
+                }
+            }
+        }
+    }
+
+    [Serializable]
+    public class AnimationClass
+    {
+        public EventsAnimation EventsAnimation;
+        public UnityEvent _UnityEvent;
     }
 }
