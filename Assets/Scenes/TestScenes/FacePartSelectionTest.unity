@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameJam.FullScreenEffectController
   _material: {fileID: 2100000, guid: c1a7cf04cabf3a644b7030b15521a889, type: 2}
-  _animationTime: 1.74
+  _animationTime: 0.3
   _animationCurve:
     serializedVersion: 2
     m_Curve:
@@ -677,6 +677,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _stepsCount: 3
+  _maxLevel: 0.553
+  _currentCutLevel: 0.4994146
+  _step: 0
 --- !u!4 &877249122
 Transform:
   m_ObjectHideFlags: 0

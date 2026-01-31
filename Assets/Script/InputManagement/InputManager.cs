@@ -81,6 +81,7 @@ namespace GameJam
         {
             _inputActionMap.Disable();
             _buttonsPressed = 0;
+            CheckInputs();
         }
 
         [Button]

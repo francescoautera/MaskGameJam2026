@@ -45,7 +45,7 @@ Material:
     - _PulseAmplitude: 0.02
     - _PulseFrequency: 4.8
     - _RadialNoiseSpeed: 0.1
-    - _TransitionWidth: 0.189
+    - _TransitionWidth: 0.274
     - _VignetteIntensity: 0.319
     m_Colors:
     - _VignnetteColor: {r: 0.29559743, g: 0, b: 0, a: 1}
