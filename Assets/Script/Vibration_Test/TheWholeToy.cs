@@ -1,3 +1,4 @@
+using System;
 using GameJam;
 using UnityEngine;
 using UnityEngine.Events;
@@ -23,7 +24,7 @@ public class TheWholeToy : MonoBehaviour
     public UnityEvent onDamageTaken;
 
     public bool isActive = false;
-    
+
     private float valueX;
     private float valueY;
     private float sweetSpotTimer;
@@ -38,9 +39,8 @@ public class TheWholeToy : MonoBehaviour
         pad = Gamepad.current;
 
         _inputManager.LeftStickPositionChanged += ReadValues;
-        
     }
-    
+
 
     private void Update()
     {
@@ -48,6 +48,7 @@ public class TheWholeToy : MonoBehaviour
         {
             return;
         }
+
         CheckSweetSpot();
     }
 
@@ -138,6 +139,15 @@ public class TheWholeToy : MonoBehaviour
         }
 
         pad.SetMotorSpeeds(targetX, targetY);
+    }
+
+    public void Reset()
+    {
+        pad.SetMotorSpeeds(0, 0);
+
+        dmgTimer = 0;
+
+        sweetSpotTimer = 0;
     }
 
 
