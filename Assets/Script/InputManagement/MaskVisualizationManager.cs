@@ -1,3 +1,4 @@
+using OmbreDiAretua;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -28,6 +29,7 @@ namespace GameJam
         [SerializeField] private float _minInputMagnitude = 0.1f;
         [SerializeField] private float _maskMovementIntensity = 0.1f;
 
+        [SerializeField] private SfxPlayer _application; 
         private void Awake()
         {
             _inputManager = GetComponent<InputManager>();
@@ -67,6 +69,7 @@ namespace GameJam
         {
             _noseMask.SetActive(true);
             _noseMaskBool = true;
+            _application.PlayFx();
             
         }
 
@@ -80,6 +83,8 @@ namespace GameJam
         {
             _rightEyeMask.SetActive(true);
             _rightMaskBoolSet = true;
+            _application.PlayFx();
+
         }
 
         private void HandleRightEyeSelectionCanceled()
@@ -92,6 +97,8 @@ namespace GameJam
         {
             _leftEyeMask.SetActive(true);
             _leftEyeMaskBool = true;
+            _application.PlayFx();
+
         }
 
         private void HandleLeftEyeSelectionCanceled()
@@ -104,6 +111,8 @@ namespace GameJam
         {
             _mouthMask.SetActive(true);
             _mouthMaskBool = true;
+            _application.PlayFx();
+
         }
 
         private void HandleMouthSelectionCanceled()
@@ -116,6 +125,8 @@ namespace GameJam
         {
             _frontMask.SetActive(true);
             _frontMaskSet = true;
+            _application.PlayFx();
+
         }
 
         private void HandleFrontSelectionCanceled()
