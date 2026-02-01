@@ -67,6 +67,7 @@ namespace GameJam
         {
             _noseMask.SetActive(true);
             _noseMaskBool = true;
+            
         }
 
         private void HandleNoseSelectionCanceled()

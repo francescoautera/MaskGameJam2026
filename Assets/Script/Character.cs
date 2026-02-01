@@ -124,7 +124,7 @@ namespace GameJam
             int pointNose = _nose.needToSetFace == markVisualization._noseMaskBool ? 1 : 0;
             var sum = pointFront + pointMouth + pointRightEye + pointLeftEye + pointNose;
             sum -= (life - currentLife);
-            sum = Math.Clamp(sum, 0, 10);
+            sum = Math.Clamp(sum, 0, 5);
             CalculatePoint(sum);
         }
 
