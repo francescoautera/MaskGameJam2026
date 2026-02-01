@@ -1938,7 +1938,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1412920484}
           m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-          m_MethodName: set_firstSelectedGameObject
+          m_MethodName: SetSelectedGameObject
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1266817236}
@@ -3327,7 +3327,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1412920484}
           m_TargetAssemblyTypeName: UnityEngine.EventSystems.EventSystem, UnityEngine.UI
-          m_MethodName: set_firstSelectedGameObject
+          m_MethodName: SetSelectedGameObject
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 1987230367}
@@ -6448,8 +6448,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1987230370}
     m_SelectOnDown: {fileID: 1987230370}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1987230370}
+    m_SelectOnRight: {fileID: 1987230370}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6963,8 +6963,8 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 1841169381}
     m_SelectOnDown: {fileID: 1841169381}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnLeft: {fileID: 1841169381}
+    m_SelectOnRight: {fileID: 1841169381}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
