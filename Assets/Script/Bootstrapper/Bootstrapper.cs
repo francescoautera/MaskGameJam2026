@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -10,6 +11,10 @@ namespace GameJam
     
 public class Bootstrapper : MonoBehaviour
 {
+
+    public UnityEvent OnWin;
+    public UnityEvent OnNext;
+    
     [Header("FaceData Setup")]
     public List<FaceData> front = new List<FaceData>();
     public List<FaceData> rightEye = new List<FaceData>();
@@ -84,6 +89,17 @@ public class Bootstrapper : MonoBehaviour
 
     public bool IsFirstEnemy() => index == 1;
 
+
+    public void TryCheckIndex()
+    {
+        if (index >= _dialogueDatas.Count)
+        {
+            OnWin?.Invoke();
+            return;
+        }
+
+        OnNext?.Invoke();
+    }
 }
 
 [Serializable]
