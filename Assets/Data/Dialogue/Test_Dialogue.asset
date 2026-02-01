@@ -14,14 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   _portrait: {fileID: 21300000, guid: 314ed52fe4e63274eba4b72d6fc5c5d0, type: 3}
   _name: 
-  _line: 'Deh sono perfonzio e ora puppo i ponzielli
-
-    tEST SU PIU RIGHE
-
-    tEST
-
-    tEST
-
-    tEST
-
-'
+  _line: "BuonSalve Messerei\nAvrei la necessit\xE0 dei suoi servigi\nCrede di pote
+    soddisfare le mie necessit\xE0?"
