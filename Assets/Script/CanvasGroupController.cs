@@ -45,6 +45,15 @@ namespace GameJam
             _group.blocksRaycasts = false;
             StartCoroutine(ChangeAlpha(1, 0,OnEnd));
         }
+        
+        public void ForceClose()
+        {
+            Close(null);
+        }
+        public void ForceOpen()
+        {
+            Show(null);
+        }
 
     }
 }
