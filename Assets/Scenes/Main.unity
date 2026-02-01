@@ -1637,14 +1637,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dda7f72b0615d3846877778d7b1225a0, type: 2}
   - {fileID: 11400000, guid: a7d97a3017b0968468ca1dcc63930c5f, type: 2}
   _SweetsPotContainers:
-  - sweetSpotX: {x: 0.25, y: 0.6}
-    sweetSpotY: {x: 0.25, y: 0.7}
-    closeToSweetSpotX: {x: 0.3, y: 0.6}
-    closeToSweetSpotY: {x: 0.2, y: 0.8}
   - sweetSpotX: {x: -0.46, y: -0.66}
     sweetSpotY: {x: -0.28, y: -0.68}
-    closeToSweetSpotX: {x: -0.6, y: -0.88}
-    closeToSweetSpotY: {x: -0.56, y: -0.78}
+    closeToSweetSpotX: {x: -0.2, y: -0.48}
+    closeToSweetSpotY: {x: -0.1, y: -0.5}
+  - sweetSpotX: {x: 0.46, y: 0.66}
+    sweetSpotY: {x: 0.28, y: 0.68}
+    closeToSweetSpotX: {x: 0.2, y: 0.48}
+    closeToSweetSpotY: {x: 0.1, y: 0.5}
+  - sweetSpotX: {x: 0.46, y: 0.66}
+    sweetSpotY: {x: -0.28, y: -0.68}
+    closeToSweetSpotX: {x: 0.2, y: 0.88}
+    closeToSweetSpotY: {x: -0.1, y: -0.7}
+  - sweetSpotX: {x: -0.46, y: -0.66}
+    sweetSpotY: {x: 0.28, y: 0.68}
+    closeToSweetSpotX: {x: -0.2, y: -0.88}
+    closeToSweetSpotY: {x: 0.1, y: 0.7}
 --- !u!1 &483725256
 GameObject:
   m_ObjectHideFlags: 0
